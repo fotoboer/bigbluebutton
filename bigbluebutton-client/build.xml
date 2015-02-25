@@ -8,7 +8,7 @@
     	<property name="FLEX_HOME" value="${env.FLEX_HOME}" />
     	<property name="LOCALE_DIR" value="${FLEX_HOME}/frameworks/locale"/>
     	<property name="BASE_DIR" value="${basedir}" />
-      <property name="themeFile" value="BBBDefault.css"/>
+      <property name="themeFile" value="AS_default.css"/>
 	    <property name="blackTheme" value="BBBBlack.css"/>
 	    <property name="LOCALE" value="en_US" />
 	     <property name="RESOURCES_DIR" value="${BASE_DIR}/resources" />	
