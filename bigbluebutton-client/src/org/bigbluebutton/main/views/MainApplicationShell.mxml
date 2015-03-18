@@ -102,6 +102,8 @@ with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 			// LIVE or PLAYBACK
 			private var _mode:String = 'LIVE';
 			[Bindable] public var appVersion:String = ' ';
+			[Bindable] public var siteUrl:String = ' ';
+			[Bindable] public var siteName:String = ' ';
 			private var localeVersion:String = 'old';
 			[Bindable] public var numberOfModules:int = 0;
 			
@@ -177,6 +179,8 @@ with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 				if (event.configLocaleVersion == true) {
 					receivedConfigLocaleVer = true;
 					appVersion = event.appVersion;
+					siteUrl = event.siteUrl;
+					siteName = event.siteName;
 					localeVersion = event.localeVersion;
 //					LogUtil.debug("Received locale version fron config.xml");
 				} else {
