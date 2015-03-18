@@ -42,6 +42,8 @@ package org.bigbluebutton.main.model
 		private var rawXML:XML;
 		
 		public var version:String;
+		public var siteName:String;
+		public var siteUrl:String;
 		public var localeVersion:String;
 		public var suppressLocaleWarning:Boolean = false;
 		public var portTestHost:String;
@@ -100,6 +102,8 @@ package org.bigbluebutton.main.model
 			host = xml.application.@host;
 			helpURL = xml.help.@url;
 			version = xml.version;
+			siteName = xml.siteName;
+			siteUrl = xml.siteUrl;
 			localeVersion = xml.localeversion;	
 			if (xml.localeversion.@suppressWarning == "true") suppressLocaleWarning = true;
 			if (xml.language.@userSelectionEnabled == "true") languageEnabled = true;
