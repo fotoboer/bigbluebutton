@@ -48,6 +48,8 @@ package org.bigbluebutton.main.model
 		public var portTestApplication:String;
 		public var portTestTimeout:Number;
 		public var helpURL:String;
+		public var hsiteUrl:String;
+		public var hsiteName :String;
 		public var application:String;
 		public var host:String;
 		public var numModules:int;
@@ -100,6 +102,8 @@ package org.bigbluebutton.main.model
 			host = xml.application.@host;
 			helpURL = xml.help.@url;
 			version = xml.version;
+			siteUrl = xml.siteUrl;
+			siteName = xml.siteName;
 			localeVersion = xml.localeversion;	
 			if (xml.localeversion.@suppressWarning == "true") suppressLocaleWarning = true;
 			if (xml.language.@userSelectionEnabled == "true") languageEnabled = true;
