@@ -48,8 +48,8 @@ package org.bigbluebutton.main.model
 		public var portTestApplication:String;
 		public var portTestTimeout:Number;
 		public var helpURL:String;
-		public var hsiteUrl:String;
-		public var hsiteName :String;
+		public var siteUrl:String;
+		public var siteName :String;
 		public var application:String;
 		public var host:String;
 		public var numModules:int;
