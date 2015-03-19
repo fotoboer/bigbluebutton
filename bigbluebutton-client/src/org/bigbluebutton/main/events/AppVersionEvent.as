@@ -24,6 +24,8 @@ package org.bigbluebutton.main.events
 		public static const APP_VERSION_EVENT:String = "APP VERSION EVENT";
 		public var appVersion:String;
 		public var localeVersion:String;
+		public var siteName:String;
+		public var siteUrl:String;
 		public var suppressLocaleWarning:Boolean = false;
 		// If this version is from config.xml (true) or from locale.swf (false)
 		public var configLocaleVersion:Boolean = false;
