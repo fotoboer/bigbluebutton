@@ -41,6 +41,7 @@ package org.bigbluebutton.modules.present.model
        _pngUri = pngUri;
        this.xOffset = x;
        this.yOffset = y;
+       _txtLoaded = true;
        this.widthRatio = width;
        this.heightRatio = height;
        
