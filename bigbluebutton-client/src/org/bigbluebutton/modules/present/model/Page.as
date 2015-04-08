@@ -83,7 +83,7 @@ package org.bigbluebutton.modules.present.model
 	  _preloadCount = preloadCount;
 	  
 	  if (!_swfLoaded) loadSwf();
-	  if (!_txtLoaded) loadTxt();
+	  //if (!_txtLoaded) loadTxt();
     }
     
     public function get swfData():ByteArray {
