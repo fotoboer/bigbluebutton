@@ -41,7 +41,7 @@ package org.bigbluebutton.modules.present.model
        _pngUri = pngUri;
        this.xOffset = x;
        this.yOffset = y;
-       _txtLoaded = true;
+       //_txtLoaded = true;
        this.widthRatio = width;
        this.heightRatio = height;
        
@@ -51,6 +51,7 @@ package org.bigbluebutton.modules.present.model
        
        _txtLoader = new URLLoader();
        _txtLoader.addEventListener(Event.COMPLETE, handleTextLoadingComplete);	
+       _txtLoader.addEventListener(IOErrorEvent.IO_ERROR, handleTextLoadingInComplete);
        _txtLoader.dataFormat = URLLoaderDataFormat.TEXT;	
     }
     
@@ -84,7 +85,7 @@ package org.bigbluebutton.modules.present.model
 	  _preloadCount = preloadCount;
 	  
 	  if (!_swfLoaded) loadSwf();
-	  //if (!_txtLoaded) loadTxt();
+	  if (!_txtLoaded) loadTxt();
     }
     
     public function get swfData():ByteArray {
@@ -119,7 +120,18 @@ package org.bigbluebutton.modules.present.model
       }
     }
     
-    private function handleTextLoadingComplete(e:Event):void{
+    private function handleTextLoadingInComplete(e:Event):void{
+      trace(LOG + "*** handleTextLoadingInComplete " + e + " **** \n");
+      _txtLoaded = true;
+      if (_swfLoaded) {
+        if (_pageLoadedListener != null) {
+          _pageLoadedListener(_id, _preloadCount);
+        }
+        _preloadCount = 0;
+      }
+    }
+
+    private function handleTextLoadingComplete(e:IOErrorEvent):void{
       _txtLoaded = true;
       if (_swfLoaded) {
         if (_pageLoadedListener != null) {
