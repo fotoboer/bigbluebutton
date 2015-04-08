@@ -121,7 +121,7 @@ package org.bigbluebutton.modules.present.model
     }
     
     private function handleTextLoadingInComplete(e:Event):void{
-      trace(LOG + "*** handleTextLoadingInComplete " + e + " **** \n");
+      trace( "*** handleTextLoadingInComplete " + " **** \n");
       _txtLoaded = true;
       if (_swfLoaded) {
         if (_pageLoadedListener != null) {
