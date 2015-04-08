@@ -1,6 +1,6 @@
 package org.bigbluebutton.modules.present.model
 {
-  import flash.events.Event;
+  import flash.events.*;
   import flash.net.URLLoader;
   import flash.net.URLLoaderDataFormat;
   import flash.net.URLRequest;
