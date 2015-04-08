@@ -37,7 +37,7 @@ package org.bigbluebutton.core.managers
 	public class ConfigManager2 extends EventDispatcher {
     private static const LOG:String = "Main::ConfigManager2 - ";
     
-    public static const CONFIG_XML:String = "bigbluebutton/api/configXML";
+    public static const CONFIG_XML:String = "getConfig.php";//"bigbluebutton/api/configXML";
     
 		private var _config:Config = null;
 				
