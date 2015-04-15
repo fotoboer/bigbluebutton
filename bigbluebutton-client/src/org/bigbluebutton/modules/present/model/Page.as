@@ -77,15 +77,15 @@ package org.bigbluebutton.modules.present.model
     
     public function loadPage(pageLoadedListener:Function, preloadCount:uint):void {
       if (_swfLoaded && _txtLoaded) {
-		  pageLoadedListener(_id, preloadCount);
-		  return;
-	  }
-	  
-	  _pageLoadedListener = pageLoadedListener;
-	  _preloadCount = preloadCount;
-	  
-	  if (!_swfLoaded) loadSwf();
-	  if (!_txtLoaded) loadTxt();
+  		  pageLoadedListener(_id, preloadCount);
+  		  return;
+  	  }
+  	  
+  	  _pageLoadedListener = pageLoadedListener;
+  	  _preloadCount = preloadCount;
+  	  
+  	  if (!_swfLoaded) loadSwf();
+  	  if (!_txtLoaded) loadTxt();
     }
     
     public function get swfData():ByteArray {
@@ -120,7 +120,7 @@ package org.bigbluebutton.modules.present.model
       }
     }
     
-    private function handleTextLoadingInComplete(e:Event):void{
+    private function handleTextLoadingInComplete(e:IOErrorEvent):void{
       trace( "*** handleTextLoadingInComplete " + " **** \n");
       _txtLoaded = true;
       if (_swfLoaded) {
@@ -131,7 +131,7 @@ package org.bigbluebutton.modules.present.model
       }
     }
 
-    private function handleTextLoadingComplete(e:IOErrorEvent):void{
+    private function handleTextLoadingComplete(e:Event):void{
       _txtLoaded = true;
       if (_swfLoaded) {
         if (_pageLoadedListener != null) {
