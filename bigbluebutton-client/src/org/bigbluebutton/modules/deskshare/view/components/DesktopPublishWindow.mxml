@@ -115,7 +115,7 @@ with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 				cursor.graphics.drawCircle(0,0,3);		
 				
 				var javaIssue:String = JavaCheck.checkJava();
-				
+				LogUtil.debug("onstartupcomplete: "+javaIssue);
 				if (isUsingLessThanChrome38OnMac()) {
 					setCurrentState("chromeOnMacWarningState");
 				}
