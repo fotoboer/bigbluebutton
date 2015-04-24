@@ -22,7 +22,7 @@ package org.bigbluebutton.modules.deskshare.utils
 	
 	import flash.external.ExternalInterface;
 	import flash.utils.setTimeout;
-	
+	import org.bigbluebutton.common.LogUtil;
 	import org.bigbluebutton.core.BBB;
 	import org.bigbluebutton.main.events.ClientStatusEvent;
 	import org.bigbluebutton.util.i18n.ResourceUtil;
@@ -36,15 +36,17 @@ package org.bigbluebutton.modules.deskshare.utils
 			if (xml.@java != undefined) {
 				java_version = xml.@java.toString();
 			}
-			
+			LogUtil.debug("JAVACHECK: javaversion requested: "+java_version);
 			try {
 				var javas : Array = JavaCheck.getJREs();
 			} catch ( e : Error ) {
+				LogUtil.debug("JAVACHECK: javacheck getJRES failed: "+e);
 				dispatcher.dispatchEvent(new ClientStatusEvent(ClientStatusEvent.FAIL_MESSAGE_EVENT, ResourceUtil.getInstance().getString("bbb.clientstatus.java.title"), ResourceUtil.getInstance().getString("bbb.clientstatus.java.notdetected")));
 				return ResourceUtil.getInstance().getString("bbb.clientstatus.java.notdetected");
 			}
 			
 			if (javas.length == 0) {
+				LogUtil.debug("JAVACHECK: javas rtes empty: not installed ");
 				dispatcher.dispatchEvent(new ClientStatusEvent(ClientStatusEvent.FAIL_MESSAGE_EVENT, ResourceUtil.getInstance().getString("bbb.clientstatus.java.title"), ResourceUtil.getInstance().getString("bbb.clientstatus.java.notinstalled")));
 				return ResourceUtil.getInstance().getString("bbb.clientstatus.java.notinstalled");
 			}
@@ -85,6 +87,7 @@ package org.bigbluebutton.modules.deskshare.utils
 			}
 			
 			if (!passedJava) {
+				LogUtil.debug("JAVACHECK: javas not compatible /old version.");
 				dispatcher.dispatchEvent(new ClientStatusEvent(ClientStatusEvent.FAIL_MESSAGE_EVENT, ResourceUtil.getInstance().getString("bbb.clientstatus.java.title"), ResourceUtil.getInstance().getString("bbb.clientstatus.java.oldversion")));
 				return ResourceUtil.getInstance().getString("bbb.clientstatus.java.oldversion");
 			} else {
