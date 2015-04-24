@@ -241,6 +241,9 @@ package org.bigbluebutton.util.i18n
 			if ((localeTxt == "") || (localeTxt == null)) {
 				localeTxt = resourceManager.getString(BBB_RESOURCE_BUNDLE, resourceName, parameters, MASTER_LOCALE);
 			}
+			if ((localeTxt == "") || (localeTxt == null)) {
+				return resourceName;
+			}
 			return localeTxt;
 		}
 		
